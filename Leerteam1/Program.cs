@@ -17,4 +17,3 @@ namespace Leerteam1
 }
 
 
-stink rat 
