@@ -17,4 +17,4 @@ namespace Leerteam1
 }
 
 
-stink berat 2.0
+stink pedo Mitchel B. Nicky Verstappen 
