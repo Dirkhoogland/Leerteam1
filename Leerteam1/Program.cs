@@ -11,7 +11,7 @@ namespace Leerteam1
 {
     internal class Program
     {
-        static void Main()
+        public static void Main()
         {
             World.PopulateWeapons();
             World.PopulateMonsters();
@@ -20,6 +20,8 @@ namespace Leerteam1
 
             World.Print();
             Console.ReadLine();
+
+            Pause();
 
             //Making a | Main menu | and drawing it
             InputMenu menu = new InputMenu("| Main menu |", true);
@@ -36,6 +38,15 @@ namespace Leerteam1
             playmenu.Add("fullscreen", (x) => { Console.WriteLine(""); });
             playmenu.Add("not fullscreen", (x) => { Console.WriteLine(""); });
             playmenu.UseMenu();
+            });
+            menu.UseMenu();
+        }
+        public static void Pause()
+        {
+            //Making a quit menu and drawing it
+            InputMenu menu = new InputMenu("| Are you sure you want to quit? |");
+            menu.Add("Quit", (x) => {
+                Environment.Exit(0);
             });
             menu.UseMenu();
         }

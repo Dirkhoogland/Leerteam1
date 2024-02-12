@@ -37,23 +37,19 @@
             {
                 if (i == cursor)
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    if (i == this.menuoptions.Count)
-                    {
-                        if (this.exit) { Console.WriteLine(">Exit"); }
-                        else { Console.WriteLine(">Go back"); }
-                    }
-                    else { Console.WriteLine($">{this.menuoptions[i].Name}"); }
+                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine((i == this.menuoptions.Count) ? (this.exit) ? "> Exit" : "> Continue" : $"> {this.menuoptions[i].Name}");
                     Console.ResetColor();
                 }
                 else
                 {
                     if (i == this.menuoptions.Count)
                     {
-                        if (this.exit) { Console.WriteLine(" Exit"); }
-                        else { Console.WriteLine(" Go back"); }
+                        if (this.exit) { Console.WriteLine("  Exit"); }
+                        else { Console.WriteLine("  Continue"); }
                     }
-                    else { Console.WriteLine($" {this.menuoptions[i].Name}"); }
+                    else { Console.WriteLine($"  {this.menuoptions[i].Name}"); }
                 }
             };
         }
