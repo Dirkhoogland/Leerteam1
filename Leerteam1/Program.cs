@@ -17,4 +17,7 @@ namespace Leerteam1
 }
 
 
+<<<<<<< HEAD
 Pedo Mitchel B.
+=======
+>>>>>>> f26183e54c0f710b2ea621efab9b7ab721b17e21
