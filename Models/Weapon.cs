@@ -1,18 +1,14 @@
 ﻿namespace Models
 {
-    public class Weapon
+    public class Weapon: Item
     {
         //----- parameters -----//
-        public int ID;
-        public string Name;
         public int Damage;
 
         //----- Constructor -----//
-        public Weapon(int iD, string name, int damage)
+        public Weapon(int id, string type, int damage) : base(id, type)
         {
-            ID = iD;
-            Name = name;
-            Damage = damage;
+            this.Damage = damage;
         }
     }
 }

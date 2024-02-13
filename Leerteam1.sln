@@ -4,9 +4,9 @@ VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leerteam1", "Leerteam1\Leerteam1.csproj", "{29E0DCC8-71AA-4503-903B-E867759F166F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{44DDB7D7-57FA-4067-B8F7-C0AA65711A0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{44DDB7D7-57FA-4067-B8F7-C0AA65711A0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Menu", "Menu\Menu.csproj", "{4EAFF476-DE19-4CB8-B01B-61B3A1548796}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Functions", "Menu\Functions.csproj", "{4EAFF476-DE19-4CB8-B01B-61B3A1548796}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

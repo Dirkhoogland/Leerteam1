@@ -1,4 +1,4 @@
-﻿namespace Menu
+﻿namespace Functions
 {
     public class InputMenu
     {
