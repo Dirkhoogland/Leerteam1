@@ -12,12 +12,12 @@ namespace Functions
 {
     public class Inventory
     {
-        public List<Item> inventory;
+        public Dictionary<string, List<Item>> inventory;
         Dictionary<string, int> toPrint;
         public Weapon equipedWeapon = new Weapon(0, "", 0);
         public Inventory()
         {
-            inventory = new List<Item>();
+            inventory = new Dictionary<string, List<Item>>();
             toPrint = new Dictionary<string, int>();
             UpdatetoPrint();
         }
@@ -33,14 +33,29 @@ namespace Functions
             }
             weaponMenu.UseMenu();
         }
+        List<Item> CompleteInventroy()
+        {
+            List<Item> toReturn = new List<Item>();
+            foreach (List<Item> itemList in inventory.Values)
+            {
+                foreach (Item item in itemList)
+                {
+                    toReturn.Add(item);
+                }
+            }
+            return toReturn;
+        }
         List<Item> getWeapons()
         {
             List<Item> toReturn = new List<Item>();
-            foreach (Item item in inventory)
+            foreach (List<Item> itemList in inventory.Values)
             {
-                if (item.Type.Contains("sword"))
+                foreach (Item item in itemList)
                 {
-                    toReturn.Add(item);
+                    if (item.Type.Contains("sword"))
+                    {
+                        toReturn.Add(item);
+                    }
                 }
             }
             return toReturn;
@@ -65,7 +80,8 @@ namespace Functions
         public void UpdatetoPrint(bool weapon = false)
         {
             toPrint = new Dictionary<string, int>();
-            foreach (Item item in (weapon) ? getWeapons() : inventory)
+            List<Item> completeInventroy = CompleteInventroy();
+            foreach (Item item in (weapon) ? getWeapons() : completeInventroy)
             {
                 if (!toPrint.ContainsKey(item.Type)) { toPrint.Add(item.Type, 1); }
                 else { toPrint[item.Type] += 1; }
@@ -73,12 +89,13 @@ namespace Functions
         }
         public void AddInventoryItem(Item item)
         {
-            inventory.Add(item);
+            if (!inventory.ContainsKey(item.Type)) { inventory.Add(item.Type, new List<Item> { item }); }
+            else { inventory[item.Type].Add(item); }
             UpdatetoPrint();
         }
         public void RemoveInventoryItem(Item item)
         {
-            inventory.Remove(item);
+            inventory[item.Type].Remove(item);
             UpdatetoPrint();
         }
     }
