@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Models;
-using Menu;
+using Functions;
 
 namespace Leerteam1
 {
@@ -13,6 +13,7 @@ namespace Leerteam1
     {
         public static void Main()
         {
+            /*
             World.PopulateWeapons();
             World.PopulateMonsters();
             World.PopulateQuests();
@@ -20,8 +21,20 @@ namespace Leerteam1
 
             World.Print();
             Console.ReadLine();
+            */
+            Inventory playerInventory = new Inventory();
+            playerInventory.AddInventoryItem(new Weapon(playerInventory.inventory.Count, "| Wooden sword  |", 2));
+            playerInventory.AddInventoryItem(new Item(playerInventory.inventory.Count, "| String        |"));
+            playerInventory.PrintInventory();
+            Console.ReadLine();
 
-            Pause();
+            playerInventory.ChangeEquipedWeapon();
+            playerInventory.PrintInventory();
+            Console.ReadLine();
+
+            //Create inventory functions and print function
+
+            //Pause();
 
             //Making a | Main menu | and drawing it
             InputMenu menu = new InputMenu("| Main menu |", true);

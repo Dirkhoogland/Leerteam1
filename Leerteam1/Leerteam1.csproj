@@ -14,7 +14,7 @@
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Menu\Menu.csproj" />
+    <ProjectReference Include="..\Menu\Functions.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
   </ItemGroup>
 </Project>

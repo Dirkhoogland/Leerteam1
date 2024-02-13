@@ -223,7 +223,7 @@
         {
             foreach (Weapon weapen in Weapons)
             {
-                Console.WriteLine(weapen.Name);
+                Console.WriteLine(weapen.Type);
             }
             foreach (Monster monster in Monsters)
             {
