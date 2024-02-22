@@ -6,6 +6,7 @@
         public int CurrentHitPoints;
         public int CurrentLocation;
         public int CurrentWeapon;
+        public Inventory PlayerInventory;
         public int MaximumHitPoints;
         public int Name;
 
@@ -15,6 +16,7 @@
             this.CurrentHitPoints = currentHitPoints;
             this.CurrentLocation = currentLocation;
             this.CurrentWeapon = currentWeapon;
+            this.PlayerInventory = new Inventory();
             this.MaximumHitPoints = maximumHitPoints;
             this.Name = name;
         }
