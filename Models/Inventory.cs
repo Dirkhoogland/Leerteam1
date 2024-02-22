@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using Functions;
-using Models;
-
-namespace Functions
+﻿namespace Models
 {
     public class Inventory
     {
@@ -62,7 +52,7 @@ namespace Functions
         }
         public void PrintInventory(bool weapon = false)
         {
-            if (weapon) { UpdatetoPrint(weapon);}
+            if (weapon) { UpdatetoPrint(weapon); }
             List<string> stringToPrint = new List<string>();
             if (equipedWeapon.Type.Length > 3) stringToPrint.Add(($"|Equiped: {equipedWeapon.Type.Substring(2)}            ").Substring(0, 22) + "|");
             else stringToPrint.Add(($"|Equiped: {equipedWeapon.Type}            ").Substring(0, 22) + "|");
