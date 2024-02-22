@@ -13,13 +13,12 @@ namespace Functions
     {
         public void StartCombat(Player player, Monster monster)
         {
-            List<Weapon> Weaponscombat = new List<Weapon>();
-            Weapon weaponlist.Add(World.Weapons);
+
 
 
             while(player.CurrentHitPoints > 0 && monster.CurrentHitPoints > 0)
             {
-                int dmg = playerweapon.Damage;
+
             }
             if (player.CurrentHitPoints <= 0)
             {
