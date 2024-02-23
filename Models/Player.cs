@@ -11,7 +11,7 @@
         public int Name;
 
         //----- Constructor -----//
-        public Player(int currentHitPoints, int currentLocation, int currentWeapon, int maximumHitPoints, int name)
+        public Player(int currentHitPoints, int currentLocation, int currentWeapon,int maximumHitPoints, int name)
         {
             this.CurrentHitPoints = currentHitPoints;
             this.CurrentLocation = currentLocation;
