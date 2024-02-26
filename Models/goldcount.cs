@@ -58,3 +58,5 @@ class Program
         Console.WriteLine($"You've defeated a {dragon.Name} and received {dragon.Defeat()} gold!");
     }
 }
+
+
