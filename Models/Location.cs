@@ -36,30 +36,44 @@
         public bool IsEastBlocked { get; set; }
         public bool IsWestBlocked { get; set; }
 // Objecten bij world.cs toevoegen en als er een object is dan Is(Richting)Blocked = true
-        public Location MoveTo(string direction)
+int Location_x = 0;
+int Location_y = 0;
+    public Location MoveTo(string direction)
+    {
+        switch (direction.ToLower())
         {
-            switch (direction.ToLower())
-            {
-                case "north":
-                    if (IsNorthBlocked)
-                        throw new Exception("The path to the north is blocked.");
-                    return LocationToNorth;
-                case "south":
-                    if (IsSouthBlocked)
-                        throw new Exception("The path to the south is blocked.");
-                    return LocationToSouth;
-                case "east":
-                    if (IsEastBlocked)
-                        throw new Exception("The path to the east is blocked.");
-                    return LocationToEast;
-                case "west":
-                    if (IsWestBlocked)
-                        throw new Exception("The path to the west is blocked.");
-                    return LocationToWest;
-                default:
-                    throw new Exception("Invalid direction. Please enter north, south, east, or west.");
-            }
+            case "north":
+                if (IsNorthBlocked)
+                    throw new Exception("The path to the north is blocked.");
+                LocationToNorth.PrintCurrentLocation();
+                Location_y++;
+                Console.WriteLine($"X: {Location_x}, Y: {Location_y}");
+                return LocationToNorth;
+            case "south":
+                if (IsSouthBlocked)
+                    throw new Exception("The path to the south is blocked.");
+                LocationToSouth.PrintCurrentLocation();
+                Location_y--;
+                Console.WriteLine($"X: {Location_x}, Y: {Location_y}");
+                return LocationToSouth;
+            case "east":
+                if (IsEastBlocked)
+                    throw new Exception("The path to the east is blocked.");
+                LocationToEast.PrintCurrentLocation();
+                Location_x++;
+                Console.WriteLine($"X: {Location_x}, Y: {Location_y}");
+                return LocationToEast;
+            case "west":
+                if (IsWestBlocked)
+                    throw new Exception("The path to the west is blocked.");
+                LocationToWest.PrintCurrentLocation();
+                Location_x--;
+                Console.WriteLine($"X: {Location_x}, Y: {Location_y}");
+                return LocationToWest;
+            default:
+                throw new Exception("Invalid direction. Please enter north, south, east, or west.");
         }
+    }
 // Map toevoegen om te kijken waar je bent. In samenwerking met locatie namen, dus als je bij locatie 1 bent dan is het locatie 1.
         public List<string> GetAvailableMoves()
         {
@@ -87,5 +101,9 @@
 
             return availableMoves;
         }
+    public void PrintCurrentLocation()
+    {
+        Console.WriteLine($"You are currently at {Name}");
+    }
     }
 }
