@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Models;
-using Functions;
 
 namespace Leerteam1
 {
@@ -13,7 +11,6 @@ namespace Leerteam1
     {
         public static void Main()
         {
-            /*
             World.PopulateWeapons();
             World.PopulateMonsters();
             World.PopulateQuests();
@@ -21,36 +18,31 @@ namespace Leerteam1
 
             World.Print();
             Console.ReadLine();
-            */
+
+            //Create inventory for later use
             Inventory playerInventory = new Inventory();
-            playerInventory.AddInventoryItem(new Weapon(playerInventory.inventory.Count, "| Wooden sword  |", 2));
-            playerInventory.AddInventoryItem(new Item(playerInventory.inventory.Count, "| String        |"));
-            playerInventory.PrintInventory();
-            Console.ReadLine();
-
-            playerInventory.ChangeEquipedWeapon();
-            playerInventory.PrintInventory();
-            Console.ReadLine();
-
-            //Create inventory functions and print function
-
-            //Pause();
 
             //Making a | Main menu | and drawing it
             InputMenu menu = new InputMenu("| Main menu |", true);
-            menu.Add("Play", (x) =>
+            menu.Add("Inventory", (x) =>
             {
-            InputMenu playmenu = new InputMenu("| Play menu |");
-            playmenu.Add("Yellow", (x) => { Console.ForegroundColor = ConsoleColor.Yellow; });
-            playmenu.Add("Green", (x) => { Console.ForegroundColor = ConsoleColor.Green; });
-            playmenu.UseMenu();
+                //Create inventory functions and print function
+                Console.Clear();
+                playerInventory.AddInventoryItem(new Weapon(playerInventory.inventory.Count, "| Wooden sword  |", 2));
+                playerInventory.AddInventoryItem(new Item(playerInventory.inventory.Count, "| String        |"));
+                playerInventory.PrintInventory();
+                Console.ReadLine();
             });
-            menu.Add("Options", (x) =>
+            menu.Add("Equip Weapon", (x) =>
             {
-            InputMenu playmenu = new InputMenu("| Options |");
-            playmenu.Add("fullscreen", (x) => { Console.WriteLine(""); });
-            playmenu.Add("not fullscreen", (x) => { Console.WriteLine(""); });
-            playmenu.UseMenu();
+                Console.Clear();
+                playerInventory.ChangeEquipedWeapon();
+                playerInventory.PrintInventory();
+                Console.ReadLine();
+            });
+            menu.Add("Pause", (x) =>
+            {
+                Pause();
             });
             menu.UseMenu();
         }
