@@ -51,7 +51,6 @@ namespace Leerteam1
             playmenu.UseMenu();
             });
             menu.UseMenu();
-        
         }
         public static void Pause()
         {
