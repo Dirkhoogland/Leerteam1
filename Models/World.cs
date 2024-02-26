@@ -2,6 +2,7 @@
 {
     public static class World
     {
+        
         //----- Creating object-instances -----//
         public static readonly List<Weapon> Weapons = new List<Weapon>();
         public static readonly List<Monster> Monsters = new List<Monster>();
@@ -55,7 +56,8 @@
         //Monsters
         public static void PopulateMonsters()
         {
-            Monster rat = new Monster(MONSTER_ID_RAT, "rat", 1, 3, 3);
+            
+            Monster rat = new Monster(MONSTER_ID_RAT, "rat", 3, 3, 3);
             Monster snake = new Monster(MONSTER_ID_SNAKE, "snake", 10, 7, 7);
             Monster giantSpider = new Monster(MONSTER_ID_GIANT_SPIDER, "giant spider", 3, 10, 10);
 
