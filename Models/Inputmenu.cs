@@ -39,7 +39,7 @@
                 {
                     Console.ResetColor();
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine((i == this.menuoptions.Count) ? (this.exit) ? "> Exit" : "> Continue" : $"> {this.menuoptions[i].Name}");
+                    Console.WriteLine((i == this.menuoptions.Count) ? (this.exit) ? "> Exit" : "> Back" : $"> {this.menuoptions[i].Name}");
                     Console.ResetColor();
                 }
                 else
@@ -47,7 +47,7 @@
                     if (i == this.menuoptions.Count)
                     {
                         if (this.exit) { Console.WriteLine("  Exit"); }
-                        else { Console.WriteLine("  Continue"); }
+                        else { Console.WriteLine("  Back"); }
                     }
                     else { Console.WriteLine($"  {this.menuoptions[i].Name}"); }
                 }
