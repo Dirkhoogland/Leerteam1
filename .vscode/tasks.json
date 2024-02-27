@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "dotnet",
+			"task": "build C:\\Users\\berat\\Documents\\GitHub\\Leerteam1\\Leerteam1\\Leerteam1.csproj",
+			"file": "C:\\Users\\berat\\Documents\\GitHub\\Leerteam1\\Leerteam1\\Leerteam1.csproj",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "dotnet: build C:\\Users\\berat\\Documents\\GitHub\\Leerteam1\\Leerteam1\\Leerteam1.csproj"
+		}
+	]
+}

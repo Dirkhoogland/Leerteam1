@@ -44,6 +44,15 @@ namespace Leerteam1
             {
                 Pause();
             });
+            menu.Add("Location", (x) =>
+            {
+                Console.Clear();
+                foreach (var location in World.Locations)
+                {
+                    Console.WriteLine(location.Name);
+                }
+                Console.ReadLine();
+            });
             menu.UseMenu();
         }
         public static void Pause()
