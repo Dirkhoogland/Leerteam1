@@ -15,7 +15,6 @@ namespace Leerteam1
             World.PopulateWeapons();
             World.PopulateMonsters();
             World.PopulateQuests();
-            World.PopulateLocations();
 
             World.Print();
             Console.ReadLine();
@@ -59,11 +58,18 @@ namespace Leerteam1
             menu.Add("Location", (x) =>
             {
                 Console.Clear();
+                InputMenu weaponMenu = new InputMenu("| Locations |");
                 foreach (var location in World.Locations)
                 {
-                    Console.WriteLine($"{location.Name} (X: {location.X}, Y: {location.Y})");
+                    weaponMenu.Add(location.Name, (x) =>
+                    {
+                        Console.Clear();
+                        Console.WriteLine($"{location.Name} (X: {location.X}, Y: {location.Y})");
+                        Console.ReadLine();
+                    });
+
                 }
-                Console.ReadLine();
+                weaponMenu.UseMenu();
             });
             menu.Add("Combat", (x) =>
             {
