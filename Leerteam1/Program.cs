@@ -16,7 +16,7 @@ namespace Leerteam1
             Player player = new Player(25, 0, 25, "test");
             player.PlayerInventory.AddInventoryItem(new Weapon(player.PlayerInventory.inventory.Count, "| Wooden sword  |", 2));
             player.PlayerInventory.AddInventoryItem(new Item(player.PlayerInventory.inventory.Count, "| String        |"));
-            player.PlayerInventory.AddInventoryItem(new Item(player.PlayerInventory.inventory.Count, "| Gold pouch |"));
+            player.PlayerInventory.AddInventoryItem(new Item(player.PlayerInventory.inventory.Count, "| Gold pouch    |"));
 
             //Making a | Main menu | and drawing it
             InputMenu menu = new InputMenu("| Main menu |", true);
