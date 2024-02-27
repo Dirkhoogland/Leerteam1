@@ -17,10 +17,12 @@
         public Monster? MonsterLivingHere;
 
         //Mapping
-        public Location? LocationToNorth;
-        public Location? LocationToSouth;
-        public Location? LocationToEast;
-        public Location? LocationToWest;
+        public Location LocationToNorth { get; set; }
+        public Location LocationToSouth { get; set; }
+        public Location LocationToEast { get; set; }
+        public Location LocationToWest { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
 
         //----- Constructor -----//
         public Location(int iD, string name, string description, Quest? QuestAvailableHere, Monster? MonsterLivingHere)
@@ -31,13 +33,13 @@
             this.QuestAvailableHere = QuestAvailableHere;
             this.MonsterLivingHere = MonsterLivingHere;
         }
-        public bool IsNorthBlocked { get; set; }
-        public bool IsSouthBlocked { get; set; }
-        public bool IsEastBlocked { get; set; }
-        public bool IsWestBlocked { get; set; }
-// Objecten bij world.cs toevoegen en als er een object is dan Is(Richting)Blocked = true
-int Location_x = 0;
-int Location_y = 0;
+        public bool IsNorthBlocked => LocationToNorth == null;
+        public bool IsSouthBlocked => LocationToSouth == null;
+        public bool IsEastBlocked => LocationToEast == null;
+        public bool IsWestBlocked => LocationToWest == null;
+    // Objecten bij world.cs toevoegen en als er een object is dan Is(Richting)Blocked = true
+    int Location_x = 0;
+    int Location_y = 0;
     public Location MoveTo(string direction)
     {
         switch (direction.ToLower())
@@ -45,30 +47,26 @@ int Location_y = 0;
             case "north":
                 if (IsNorthBlocked)
                     throw new Exception("The path to the north is blocked.");
-                LocationToNorth.PrintCurrentLocation();
                 Location_y++;
-                Console.WriteLine($"X: {Location_x}, Y: {Location_y}");
+                LocationToNorth.PrintCurrentLocation();
                 return LocationToNorth;
             case "south":
                 if (IsSouthBlocked)
                     throw new Exception("The path to the south is blocked.");
-                LocationToSouth.PrintCurrentLocation();
                 Location_y--;
-                Console.WriteLine($"X: {Location_x}, Y: {Location_y}");
+                LocationToSouth.PrintCurrentLocation();
                 return LocationToSouth;
             case "east":
                 if (IsEastBlocked)
                     throw new Exception("The path to the east is blocked.");
-                LocationToEast.PrintCurrentLocation();
                 Location_x++;
-                Console.WriteLine($"X: {Location_x}, Y: {Location_y}");
+                LocationToEast.PrintCurrentLocation();
                 return LocationToEast;
             case "west":
                 if (IsWestBlocked)
                     throw new Exception("The path to the west is blocked.");
-                LocationToWest.PrintCurrentLocation();
                 Location_x--;
-                Console.WriteLine($"X: {Location_x}, Y: {Location_y}");
+                LocationToWest.PrintCurrentLocation();
                 return LocationToWest;
             default:
                 throw new Exception("Invalid direction. Please enter north, south, east, or west.");
@@ -103,7 +101,7 @@ int Location_y = 0;
         }
     public void PrintCurrentLocation()
     {
-        Console.WriteLine($"You are currently at {Name}");
+        Console.WriteLine($"You are currently at {Name} \n(X: {Location_x}, Y: {Location_y})");
     }
     }
 }

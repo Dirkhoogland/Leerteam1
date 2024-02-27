@@ -61,7 +61,7 @@ namespace Leerteam1
                 Console.Clear();
                 foreach (var location in World.Locations)
                 {
-                    Console.WriteLine(location.Name);
+                    Console.WriteLine($"{location.Name} (X: {location.X}, Y: {location.Y})");
                 }
                 Console.ReadLine();
             });
