@@ -1,6 +1,6 @@
-class Gold 
+public class Gold 
 {
-    public int goldCount = 0;
+    public static int goldCount = 0;
     public void AddGold(int amount)
     {
         goldCount += amount;
@@ -27,21 +27,31 @@ public class Monster
     }
 }
 
-public class Goblin : Monster
+public class Rat : Monster
 {
-    public Goblin()
+    public Rat()
     {
-        Name = "Goblin";
+        Name = "Rat";
         MinGold = 10;
         MaxGold = 20;
     }
 }
 
-public class Dragon : Monster
+public class Snake : Monster
 {
-    public Dragon()
+    public Snake()
     {
-        Name = "Dragon";
+        Name = "Snake";
+        MinGold = 100;
+        MaxGold = 200;
+    }
+}
+
+public class GiantSpider : Monster
+{
+    public GiantSpider()
+    {
+        Name = "Giant Spider";
         MinGold = 100;
         MaxGold = 200;
     }
@@ -51,12 +61,12 @@ class Program
 {
     static void Main(string[] args)
     {
-        Goblin goblin = new Goblin();
-        Dragon dragon = new Dragon();
+        Rat rat = new Rat();
+        Snake snake = new Snake();
+        GiantSpider giantSpider = new GiantSpider();
 
-        Console.WriteLine($"You've defeated a {goblin.Name} and received {goblin.Defeat()} gold!");
-        Console.WriteLine($"You've defeated a {dragon.Name} and received {dragon.Defeat()} gold!");
+        Console.WriteLine($"You've defeated a {rat.Name} and received {rat.Defeat()} gold!");
+        Console.WriteLine($"You've defeated a {snake.Name} and received {snake.Defeat()} gold!");
+        Console.WriteLine($"You've defeated a {giantSpider.Name} and received {giantSpider.Defeat()} gold!");
     }
 }
-
-
