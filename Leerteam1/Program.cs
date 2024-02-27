@@ -12,26 +12,10 @@ namespace Leerteam1
     {
         public static void Main()
         {
-            World.PopulateWeapons();
-            World.PopulateMonsters();
-            World.PopulateQuests();
-
-            World.Print();
-            Console.ReadLine();
+            //Create player for later use and setting up a invetory
             Player player = new Player(25, 0, 25, "test");
-            //Inventory playerInventory = new Inventory();
             player.PlayerInventory.AddInventoryItem(new Weapon(player.PlayerInventory.inventory.Count, "| Wooden sword  |", 2));
             player.PlayerInventory.AddInventoryItem(new Item(player.PlayerInventory.inventory.Count, "| String        |"));
-            player.PlayerInventory.PrintInventory();
-            Console.ReadLine();
-
-            player.PlayerInventory.ChangeEquipedWeapon();
-            player.PlayerInventory.PrintInventory();
-            Console.ReadLine();
-
-
-            //Create inventory for later use
-            Inventory playerInventory = new Inventory();
 
             //Making a | Main menu | and drawing it
             InputMenu menu = new InputMenu("| Main menu |", true);
@@ -39,16 +23,14 @@ namespace Leerteam1
             {
                 //Create inventory functions and print function
                 Console.Clear();
-                playerInventory.AddInventoryItem(new Weapon(playerInventory.inventory.Count, "| Wooden sword  |", 2));
-                playerInventory.AddInventoryItem(new Item(playerInventory.inventory.Count, "| String        |"));
-                playerInventory.PrintInventory();
+                player.PlayerInventory.PrintInventory();
                 Console.ReadLine();
             });
             menu.Add("Equip Weapon", (x) =>
             {
                 Console.Clear();
-                playerInventory.ChangeEquipedWeapon();
-                playerInventory.PrintInventory();
+                player.PlayerInventory.ChangeEquipedWeapon();
+                player.PlayerInventory.PrintInventory();
                 Console.ReadLine();
             });
             menu.Add("Pause", (x) =>
