@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,17 @@ namespace Leerteam1
 
             World.Print();
             Console.ReadLine();
+            Player player = new Player(25, 0, 25, "test");
+            //Inventory playerInventory = new Inventory();
+            player.PlayerInventory.AddInventoryItem(new Weapon(player.PlayerInventory.inventory.Count, "| Wooden sword  |", 2));
+            player.PlayerInventory.AddInventoryItem(new Item(player.PlayerInventory.inventory.Count, "| String        |"));
+            player.PlayerInventory.PrintInventory();
+            Console.ReadLine();
+
+            player.PlayerInventory.ChangeEquipedWeapon();
+            player.PlayerInventory.PrintInventory();
+            Console.ReadLine();
+
 
             //Create inventory for later use
             Inventory playerInventory = new Inventory();
@@ -53,6 +65,16 @@ namespace Leerteam1
                 }
                 Console.ReadLine();
             });
+            menu.Add("Combat", (x) =>
+            {
+                
+                InputMenu playmenu = new InputMenu("| Options |");
+                playmenu.Add("Rat", (x) => { Combat.StartCombat(player, World.Monsters[0]); });
+                playmenu.Add("Snake", (x) => { Combat.StartCombat(player, World.Monsters[1]); });
+                playmenu.Add("GiantSpider", (x) => { Combat.StartCombat(player, World.Monsters[2]); });
+                playmenu.UseMenu();
+            });
+
             menu.UseMenu();
         }
         public static void Pause()
