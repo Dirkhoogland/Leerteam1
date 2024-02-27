@@ -16,6 +16,7 @@ namespace Leerteam1
             Player player = new Player(25, 0, 25, "test");
             player.PlayerInventory.AddInventoryItem(new Weapon(player.PlayerInventory.inventory.Count, "| Wooden sword  |", 2));
             player.PlayerInventory.AddInventoryItem(new Item(player.PlayerInventory.inventory.Count, "| String        |"));
+            player.PlayerInventory.AddInventoryItem(new Item(player.PlayerInventory.inventory.Count, "| Gold pouch |"));
 
             //Making a | Main menu | and drawing it
             InputMenu menu = new InputMenu("| Main menu |", true);
@@ -52,6 +53,14 @@ namespace Leerteam1
 
                 }
                 weaponMenu.UseMenu();
+            });
+            menu.Add("Gold", (x) =>
+            {
+                Console.Clear();
+                InputMenu weaponmenu = new InputMenu("| Gold amount |");
+                Console.WriteLine("The gold that you received from monster is " + Gold.goldCount);
+                Console.ReadLine();
+                weaponmenu.UseMenu();
             });
             menu.Add("Combat", (x) =>
             {
