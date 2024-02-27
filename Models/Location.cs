@@ -21,6 +21,8 @@
         public Location? LocationToSouth;
         public Location? LocationToEast;
         public Location? LocationToWest;
+        public int X { get; set; }
+        public int Y { get; set; }
 
         //----- Constructor -----//
         public Location(int iD, string name, string description, Quest? QuestAvailableHere, Monster? MonsterLivingHere)
@@ -35,9 +37,9 @@
         public bool IsSouthBlocked { get; set; }
         public bool IsEastBlocked { get; set; }
         public bool IsWestBlocked { get; set; }
-// Objecten bij world.cs toevoegen en als er een object is dan Is(Richting)Blocked = true
-int Location_x = 0;
-int Location_y = 0;
+    // Objecten bij world.cs toevoegen en als er een object is dan Is(Richting)Blocked = true
+    int Location_x = 0;
+    int Location_y = 0;
     public Location MoveTo(string direction)
     {
         switch (direction.ToLower())
