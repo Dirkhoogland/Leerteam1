@@ -1,4 +1,6 @@
 ﻿
+using System.Threading;
+
 namespace Models
 {
     public class Combat
@@ -40,11 +42,11 @@ namespace Models
             }
             if (player.CurrentHitPoints <= 0)
             {
-                Defeat(player);
+                Defeat(player, monster);
             }
             else
             {
-                Victory(player);
+                Victory(player, monster);
             }
         }
         
@@ -73,16 +75,18 @@ namespace Models
                 return 0;
             }
         }
-        public static void Victory(Player player)
+        public static void Victory(Player player, Monster monster)
         {
+            monster.CurrentHitPoints = monster.MaximumHitPoints;
             player.CurrentHitPoints = 25;
             Console.WriteLine("You won the combat");
             
             Console.ReadLine();
         }
 
-        public static void Defeat(Player player)
+        public static void Defeat(Player player, Monster monster)
         {
+            monster.CurrentHitPoints = monster.MaximumHitPoints;
             player.CurrentHitPoints = 25;
             Console.WriteLine("You lost the combat");
             Console.ReadLine();
